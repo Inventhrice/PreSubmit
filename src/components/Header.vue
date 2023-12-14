@@ -41,7 +41,7 @@ import HeaderButton from "./HeaderButton.vue"
         <h1><a :href="listTabs[0].tabLink">Pre-Submit</a></h1>
         <header class="d-flex justify-content-center">
             <ul class="nav nav-pills">
-                <router-link v-for="tab in listTabs" :to="tab.tabLink">{{ tab.tabName }}</router-link>
+                <router-link class="nav-link" active-class="active" v-for="tab in listTabs" :to="tab.tabLink">{{ tab.tabName }}</router-link>
             </ul>
         </header>
     </div>
@@ -53,4 +53,5 @@ import HeaderButton from "./HeaderButton.vue"
 h1{
     text-align: center;
 }
+
 </style>
