@@ -1,11 +1,6 @@
 <script>
 import listTemplates from "./components/listTemplates.vue"
   export default{
-    data(){
-      return{
-        tabIndex: 3
-      }
-    },
     components:{
       'listTemplates': listTemplates
     }
@@ -13,10 +8,8 @@ import listTemplates from "./components/listTemplates.vue"
 </script>
 
 <template>
-  <headerModule :activeTab="tabIndex" />
+  <headerModule :activeTab="0" />
   <listTemplates />
-  <aboutBlurb v-if="tabIndex === 3" />
-
 </template>
 
 <style scoped>
