@@ -1,28 +1,27 @@
 <script>
 import HeaderButton from "./HeaderButton.vue"
-let id = 0
     export default{
         data() {
             return {
                 currActiveTab: 0,
                 listTabs: [
                     {
-                        id: id++,
+                        id: 0,
                         tabName: 'Index',
                         tabLink: 'index.html'
                     },
                     {
-                        id: id++,
+                        id: 1,
                         tabName: 'Templates',
                         tabLink: 'templates.html'
                     },
                     {
-                        id: id++,
+                        id: 2,
                         tabName: 'Settings',
                         tabLink: 'settings.html'
                     },
                     {
-                        id: id++,
+                        id: 3,
                         tabName: 'About',
                         tabLink: 'about.html'
                     },
