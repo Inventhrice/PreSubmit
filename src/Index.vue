@@ -2,15 +2,15 @@
   export default{
     data(){
       return{
-        currentTab: ''
+        tabIndex: 0
       }
     }
   }
 </script>
 
 <template>
-  <headerModule />
-  <aboutBlurb v-if="currentTab = 'about'" />
+  <headerModule :activeTab="tabIndex" />
+  <aboutBlurb v-if="tabIndex === 3" />
 
 </template>
 
