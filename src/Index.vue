@@ -8,7 +8,6 @@ import listTemplates from "./components/listTemplates.vue"
 </script>
 
 <template>
-  <PSHeader :activeTab="0" />
   <listTemplates />
 </template>
 

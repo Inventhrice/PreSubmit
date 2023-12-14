@@ -1,3 +1,3 @@
 <template>
-    <PSHeader :activeTab="2" />
+    <p>Settings Page</p>
 </template>

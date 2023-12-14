@@ -9,8 +9,6 @@
 </script>
 
 <template>
-    <Index v-if="tabIndex == 0" />
-    <Templates v-else-if="tabIndex == 1" />
-    <Settings v-else-if="tabIndex == 2" />
-    <About v-else-if="tabIndex == 3" />
+    <PSHeader :activeTab="0" />
+    <router-view></router-view>
 </template>

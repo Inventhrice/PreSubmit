@@ -1,3 +1,3 @@
 <template>
-    <PSHeader :activeTab="1" />
+    <p>Template Tab</p>
 </template>
