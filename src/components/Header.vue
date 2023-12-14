@@ -1,9 +1,34 @@
 <script>
+import HeaderButton from "./HeaderButton.vue"
     export default{
-        data(){
-            return{
-                activeTab: ''
+        data() {
+            return {
+                listTabs: [
+                    {
+                        tabName: 'Index',
+                        tabLink: 'index.html',
+                        active: true
+                    },
+                    {
+                        tabName: 'Templates',
+                        tabLink: 'templates.html',
+                        active: false
+                    },
+                    {
+                        tabName: 'Settings',
+                        tabLink: 'settings.html',
+                        active: false
+                    },
+                    {
+                        tabName: 'About',
+                        tabLink: 'about.html',
+                        active: false
+                    },
+                ]
             }
+        },
+        components: {
+            'headerbutton': HeaderButton
         }
     }
 </script>
@@ -14,10 +39,7 @@
         <h1><a href="index.html">Pre-Submit</a></h1>
         <header class="d-flex justify-content-center">
             <ul class="nav nav-pills">
-            <li class="nav-item"><a href="index.html" class="nav-link">Index</a><br></li>
-            <li class="nav-item"><a href="templates.html" class="nav-link">Templates</a><br></li>
-            <li class="nav-item"><a href="Settings.html" class="nav-link">Settings</a><br></li>
-            <li class="nav-item"><a href="about.html" class="nav-link">About</a><br></li>
+                <headerbutton v-for="tab in listTabs" :tabName="tab.tabName" :tabLink="tab.tabLink" :active="tab.active" />
             </ul>
         </header>
     </div>

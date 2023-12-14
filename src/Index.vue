@@ -2,7 +2,7 @@
   export default{
     data(){
       return{
-        
+        currentTab: ''
       }
     }
   }
@@ -10,6 +10,8 @@
 
 <template>
   <headerModule />
+  <aboutBlurb v-if="currentTab = 'about'" />
+
 </template>
 
 <style scoped>
