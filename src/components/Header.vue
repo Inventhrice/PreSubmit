@@ -38,7 +38,7 @@ import HeaderButton from "./HeaderButton.vue"
 <template>
 <div class="row h">
     <div class="col">
-        <h1><a href="index.html">Pre-Submit</a></h1>
+        <h1><a :href="listTabs[0].tabLink">Pre-Submit</a></h1>
         <header class="d-flex justify-content-center">
             <ul class="nav nav-pills">
                 <headerbutton v-for="tab in listTabs" :tabName="tab.tabName" :tabLink="tab.tabLink" :activeID="activeTab" :id="tab.id" />

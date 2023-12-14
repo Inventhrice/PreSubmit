@@ -1,3 +1,3 @@
 <template>
-    <headerModule :activeTab="1" />
+    <PSHeader :activeTab="1" />
 </template>
