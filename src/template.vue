@@ -1,3 +1,4 @@
 <template>
-    <p>Template Tab</p>
+    <listTemplates />
+    
 </template>

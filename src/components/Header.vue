@@ -3,7 +3,6 @@ import HeaderButton from "./HeaderButton.vue"
     export default{
         data() {
             return {
-                currActiveTab: 0,
                 listTabs: [
                     {
                         id: 0,
