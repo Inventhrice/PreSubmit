@@ -1,8 +1,4 @@
-<script>
-
-</script>
-
 <template>
-    <PSHeader/>
+    <PSHeader />
     <router-view></router-view>
 </template>

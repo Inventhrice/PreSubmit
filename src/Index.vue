@@ -1,12 +1,14 @@
 <script>
-import listTemplates from "./components/listTemplates.vue"
-  export default{
+import templateEditor from "./components/templateEditor.vue"
+export default{
     components:{
-      'listTemplates': listTemplates
+        'templateEditor': templateEditor
     }
-  }
+    
+}
 </script>
 
 <template>
-  <listTemplates />
+    <p>Start new process</p>
+    <templateEditor />
 </template>
