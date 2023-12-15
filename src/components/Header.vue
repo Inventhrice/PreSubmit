@@ -30,8 +30,7 @@ import HeaderButton from "./HeaderButton.vue"
         },
         components: {
             'headerbutton': HeaderButton
-        },
-        props: ['activeTab']
+        }
     }
 </script>
 
