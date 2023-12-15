@@ -10,7 +10,3 @@ import listTemplates from "./components/listTemplates.vue"
 <template>
   <listTemplates />
 </template>
-
-<style scoped>
-
-</style>
