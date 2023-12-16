@@ -2,25 +2,21 @@ import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 import PreSubmit from './PreSubmit.vue'
-import Index from './Index.vue'
-import About from './about.vue'
-import Settings from './settings.vue'
-import Template from "./template.vue"
-
 import Header from './components/Header.vue'
 
 const router = createRouter({
     history: createWebHistory(),
     routes: [
-        { path: '/', component: Index },
-        { path: '/about', component: About },
-        { path: '/settings', component: Settings },
-        { path: '/template', component: Template },
+        { path: '/', component: () => import('./Index.vue') },
+        { path: '/about', component: () => import('./about.vue') },
+        { path: '/settings', component: () => import('./settings.vue') },
+        { path: '/template', component: () => import('./template.vue') },
+        { path: '/fileUpload', component: () => import('./fileUpload.vue') }
     ]
-});
+})
 
 
 const app = createApp(PreSubmit)
 app.component('PSHeader', Header)
-app.use(router);
+app.use(router)
 app.mount('#app')

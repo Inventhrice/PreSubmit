@@ -1,16 +1,14 @@
 <template>
     <div class="row h">
-        <input type="file" id="fileInput" accept=".txt, .zip" multiple><br>
-        <input type="text" id="comments"><br>
+        <input type="file" id="fileInput" accept=".txt, .zip" multiple><br><br>
+        <input type="text" id="comments"><br><br>
         <button onclick="uploadFile()">Check my submission</button><br>
     </div>
-    <div class="row h">
-        <section id="results"></section>
-    </div>
-
+    <displayResults />
 </template>
 
 <script>
+import DisplayResults from './components/DisplayResults.vue';
     export default{
         methods: {
             uploadFile() {
@@ -30,6 +28,9 @@
                     console.log('No file selected');
                 }
             }
+        },
+        components:{
+            "displayResults": DisplayResults
         }
     }
 </script>

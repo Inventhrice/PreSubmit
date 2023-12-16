@@ -20,4 +20,7 @@
             </label><br>
         </div>
     </div>
+    <router-link to="/fileUpload" v-slot="{href, navigate}">
+        <button :href="href" @click="navigate">Next</button>
+    </router-link>
 </template>
