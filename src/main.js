@@ -11,7 +11,8 @@ const router = createRouter({
         { path: '/about', component: () => import('./about.vue') },
         { path: '/settings', component: () => import('./settings.vue') },
         { path: '/template', component: () => import('./template.vue') },
-        { path: '/fileUpload', component: () => import('./fileUpload.vue') }
+        { path: '/fileUpload', component: () => import('./fileUpload.vue') },
+        { path: '/conditions', component: () => import('./components/templateEditor.vue') }
     ]
 })
 

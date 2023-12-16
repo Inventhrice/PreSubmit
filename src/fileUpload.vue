@@ -1,15 +1,18 @@
 <template>
-    <div class="row h">
-        <input type="file" id="fileInput" accept=".txt, .zip" multiple><br><br>
-        <input type="text" id="comments"><br><br>
-        <button onclick="uploadFile()">Check my submission</button><br>
-    </div>
-    <displayResults />
+    <input type="file" id="fileInput" accept=".txt, .zip" multiple><br><br>
+    <input type="text" id="comments"><br><br>
+    <button click="uploadFile()">Check my submission!</button><br>
+    <div v-if="this.showResult === true"><displayResults/></div>
 </template>
 
 <script>
 import DisplayResults from './components/DisplayResults.vue';
     export default{
+        data(){
+            return{
+                showResult: false
+            }
+        },
         methods: {
             uploadFile() {
                 // Get the input element

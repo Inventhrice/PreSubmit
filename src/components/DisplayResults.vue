@@ -1,5 +1,5 @@
 <template>
     <div class="row h">
-        <section id="results"></section>
+        <p>RESULTS TIME</p>
     </div>
 </template>
