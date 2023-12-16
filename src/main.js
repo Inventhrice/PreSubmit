@@ -1,9 +1,23 @@
 import { createApp } from 'vue'
-import Index from './Index.vue'
-import Header from './components/Header.vue'
-import About from './components/about.vue'
+import { createRouter, createWebHistory } from 'vue-router'
 
-const app = createApp(Index)
-app.component('headerModule', Header)
-app.component('aboutBlurb', About)
+import PreSubmit from './PreSubmit.vue'
+import Header from './components/Header.vue'
+
+const router = createRouter({
+    history: createWebHistory(),
+    routes: [
+        { path: '/', component: () => import('./Index.vue') },
+        { path: '/about', component: () => import('./about.vue') },
+        { path: '/settings', component: () => import('./settings.vue') },
+        { path: '/template', component: () => import('./template.vue') },
+        { path: '/fileUpload', component: () => import('./fileUpload.vue') },
+        { path: '/conditions', component: () => import('./components/templateEditor.vue') }
+    ]
+})
+
+
+const app = createApp(PreSubmit)
+app.component('PSHeader', Header)
+app.use(router)
 app.mount('#app')
