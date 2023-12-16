@@ -12,7 +12,7 @@ import Header from './components/Header.vue'
 const router = createRouter({
     history: createWebHistory(),
     routes: [
-        { path: '/index', component: Index },
+        { path: '/', component: Index },
         { path: '/about', component: About },
         { path: '/settings', component: Settings },
         { path: '/template', component: Template },

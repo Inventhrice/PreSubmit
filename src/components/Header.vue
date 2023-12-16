@@ -1,5 +1,4 @@
 <script>
-import HeaderButton from "./HeaderButton.vue"
     export default{
         data() {
             return {
@@ -7,7 +6,7 @@ import HeaderButton from "./HeaderButton.vue"
                     {
                         id: 0,
                         tabName: 'Index',
-                        tabLink: 'index'
+                        tabLink: '/'
                     },
                     {
                         id: 1,
@@ -23,12 +22,9 @@ import HeaderButton from "./HeaderButton.vue"
                         id: 3,
                         tabName: 'About',
                         tabLink: 'about'
-                    },
+                    }
                 ]
             }
-        },
-        components: {
-            'headerbutton': HeaderButton
         }
     }
 </script>
