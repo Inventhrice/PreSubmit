@@ -1,5 +1,5 @@
 <script>
-import listTemplates from "./components/listTemplates.vue"
+import listTemplates from "../components/listTemplates.vue"
 export default{
     components:{
         'listTemplates': listTemplates

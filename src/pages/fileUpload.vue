@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import DisplayResults from './components/DisplayResults.vue';
+import DisplayResults from '../components/DisplayResults.vue';
     export default{
         data(){
             return{
