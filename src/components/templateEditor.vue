@@ -8,6 +8,11 @@
                     {id: 2, labelName: "Filename", value: '', inputType: "text"}
                 ]
             }
+        },
+        methods:{
+            pushCondition(name, value, inputType){
+                conditions.push({id: conditions.length-1, labelName:name, value: value, inputType: inputType})
+            }
         }
     }
 </script>
