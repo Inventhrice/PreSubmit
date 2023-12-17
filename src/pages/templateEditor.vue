@@ -3,15 +3,15 @@
         data(){
             return{
                 conditions: [
-                    {id: 0, labelName: "Word Count", value: 0, inputType: "number", min: 0},
-                    {id: 1, labelName: "Page Count", value: 0, inputType: "number", min: 0},
-                    {id: 2, labelName: "Filename", value: '', inputType: "text"}
+                    {labelName: "Word Count", value: 0, inputType: "number", min: 0},
+                    {labelName: "Page Count", value: 0, inputType: "number", min: 0},
+                    {labelName: "Filename", value: '', inputType: "text"}
                 ]
             }
         },
         methods:{
             pushCondition(name, value, inputType){
-                conditions.push({id: conditions.length-1, labelName:name, value: value, inputType: inputType})
+                conditions.push({labelName:name, value: value, inputType: inputType})
             }
         }
     }
