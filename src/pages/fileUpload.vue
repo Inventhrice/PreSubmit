@@ -1,16 +1,20 @@
 <template>
+    <h2>Upload your files here as you would for your submission box.</h2>
     <input type="file" id="fileInput" accept=".txt, .zip" multiple><br><br>
-    <input type="text" id="comments"><br><br>
-    <button click="uploadFile()">Check my submission!</button><br>
-    <div v-if="this.showResult === true"><displayResults/></div>
+    <label>Comments: </label><input type="text" id="comments"><br><br>
+    <button click="uploadFile()">Check my submission!</button><br><br>
+    <div v-if="this.showResult === true">
+        <displayResults/>
+    </div>
 </template>
 
 <script>
+// !!-- CHECK for all the inputs are something that can be done in Vue --!!
 import DisplayResults from '../components/DisplayResults.vue';
     export default{
         data(){
             return{
-                showResult: false
+                showResult: true
             }
         },
         methods: {
