@@ -4,12 +4,11 @@
     <label>Comments: </label><input type="text" id="comments"><br><br>
     <button click="uploadFile()">Check my submission!</button><br><br>
     <div v-if="this.showResult === true">
-        <displayResults/>
+        <displayResults :score="100"/>
     </div>
 </template>
 
 <script>
-// !!-- CHECK for all the inputs are something that can be done in Vue --!!
 import DisplayResults from '../components/DisplayResults.vue';
     export default{
         data(){
