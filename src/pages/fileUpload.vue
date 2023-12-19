@@ -3,7 +3,7 @@
     <input type="file" id="fileInput" accept=".txt, .zip" multiple><br><br>
     <label>Comments: </label><br>
     <textarea v-model="comments" placeholder="Put your comments here"></textarea><br><br>
-    <button click="uploadFile()">Check my submission!</button><br><br>
+    <button @click="showResult = !showResult">Check my submission!</button><br><br>
     <div v-if="this.showResult === true">
         <displayResults :score="40"/>
     </div>
@@ -14,12 +14,13 @@ import DisplayResults from '../components/DisplayResults.vue';
     export default{
         data(){
             return{
-                showResult: true,
+                showResult: false,
                 comments: ""
             }
         },
         methods: {
             uploadFile() {
+                
                 // Get the input element
                 var input = document.getElementById('fileInput');
                 var comments = document.getElementById('comments');
