@@ -4,8 +4,8 @@
         <b>What to watch out for!</b><br>
         <ul>
             <li v-for="exclaim in warnErrList">
-                <span v-if="exclaim.warning" class="warningResult">?</span>
-                <span v-else-if="exclaim.error" class="errorResult">! {{ exclaim.text }}</span>
+                <span v-if="exclaim.warning" style="color: yellow;">?</span>
+                <span v-else-if="exclaim.error" style="color: red;">!</span>
                  {{ exclaim.text }}
             </li>
         </ul>
@@ -30,13 +30,3 @@
         }
     }
 </script>
-
-<style>
-#warningResult {
-    color: darkturquoise;
-}
-
-#errorResult{
-    color: darkturquoise;
-}
-</style>
