@@ -1,5 +1,5 @@
 <template>
-    <div id="row h">     
-        <a href="templateEditor.html">Create New Template</a>
+    <div id="row h">
+        <RouterLink to="/conditions">Create New Template</RouterLink>
     </div>
 </template>
