@@ -1,30 +1,36 @@
 <script>
+import conditions from "../components/condition.vue"
     export default{
         data(){
             return{
-                conditions: [
-                    {labelName: "Word Count", value: 0, inputType: "number", min: 0},
-                    {labelName: "Page Count", value: 0, inputType: "number", min: 0},
-                    {labelName: "Filename", value: '', inputType: "text"}
-                ]
+                listOfConditions: [
+                    {conditionName: "CONDITIONNAME", fName: "fNAME", isEmpty: true, isExist: true, isFolder: false, extension: ".txt"},
+                    {conditionName: "CONDITIONNAME2", fName: "fNAME", isEmpty: true, isExist: true, isFolder: false, extension: ".txt"}
+                    ]
             }
         },
         methods:{
-            pushCondition(name, value, inputType){
-                conditions.push({labelName:name, value: value, inputType: inputType})
+            pushCondition(condition){
+                listOfConditions.push(condition)
             }
+        },
+        components:{
+            'IndividualConditon': conditions
         }
     }
 </script>
 
 <template>
     <div id="row h">
-        <div v-for="condition in conditions">
-            <label>{{ condition.labelName }}: 
-                <input v-if="condition.inputType === 'number'" :type="condition.inputType" v-model="condition.value" :min="condition.min">
-                <input v-else :type="condition.inputType" v-model="condition.value">
-                
-            </label><br>
+        <p>RENDER</p>
+        <div v-for="singleCondition in listOfConditions">
+        <IndividualConditon
+         :conditionName=singleCondition.conditionName
+         :fName="singleCondition.fName" 
+         :isEmpty="singleCondition.isEmpty" 
+         :isExist="singleCondition.isExist" 
+         :isFolder="singleCondition.isFolder" 
+         :extension="singleCondition.extension" />
         </div>
     </div>
     <router-link to="/fileUpload" v-slot="{href, navigate}">
