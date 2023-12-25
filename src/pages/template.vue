@@ -8,6 +8,7 @@ export default{
 </script>
 
 <template>
+    <p> This feature will be implemented at a later release!</p>
     <listTemplates />
     
 </template>
