@@ -5,7 +5,7 @@
     <textarea v-model="comments" placeholder="Put your comments here"></textarea><br><br>
     <button @click="uploadFile">Check my submission!</button><br><br>
     <div v-if="showResult === true">
-        <displayResults :score="score"/>
+        <displayResults :score="score" :warnErrList="warnErrList"/>
     </div>
 </template>
 
@@ -16,7 +16,12 @@ import DisplayResults from '../components/DisplayResults.vue';
             return{
                 showResult: false,
                 comments: "",
-                score: 70
+                score: 70,
+                warnErrList: [
+                    {text: "This is a general statement!", warning: false, error: false},
+                    {text: "This is what gets displayed if we are unsure of something!", warning: true, error: false},
+                    {text: "This is a certified error!", warning: false, error: true}
+                ]
             }
         },
         methods: {
