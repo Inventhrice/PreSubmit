@@ -1,6 +1,6 @@
 <template>
     <h2>Upload your files here as you would for your submission box.</h2>
-    <input type="file" id="fileInput" accept=".txt, .zip" multiple><br><br>
+    <input type="file" id="fileInput" multiple><br><br>
     <label>Comments: </label><br>
     <textarea v-model="comments" placeholder="Put your comments here"></textarea><br><br>
     <button @click="uploadFile">Check my submission!</button><br><br>
@@ -12,45 +12,60 @@
 <script>
 import DisplayResults from '../components/DisplayResults.vue';
     export default{
-        inject:{
-            comments: Object,
-            allConditions: Object
-        },
+        inject: ['commentCondition','allConditions'],
         data(){
             return{
                 showResult: false,
                 comments: "",
-                score: 70,
-                warnErrList: [
-                    {text: "This is a general statement!", warning: false, error: false},
-                    {text: "This is what gets displayed if we are unsure of something!", warning: true, error: false},
-                    {text: "This is a certified error!", warning: false, error: true}
-                ]
+                score: 0,
+                warnErrList: []
             }
         },
         methods: {
-            analyze(){
-                this.showResult = !this.showResult
-                let totalPass = 0
-                this.score = totalPass/listConditions.length
+            analyze(userFileArray){
+                // {text: "This is a general statement!", warning: false, error: false}
                 
+                let totalPass = 0
+                if(userFileArray.length != allConditions.length){
+                    warnErrList.push({text: "There are either too many or too little files provided.", warning: false, error: true})
+                }
+                else{
+                    if(commentCondition.isEmpty && this.comments == "") totalPass++
+                    else{
+                        if(!commentCondition.isEmpty && this.comments == commentCondition.contains)totalPass++
+                    }
+                    for(const file in userFileArray){
+                        let found = false
+                        console.log(file.name)
+                        for(let i = 0; !found && i < allConditions.length; i++)found = file.name == allConditions[i].fName
+                        if(found) totalPass++
+                    }
+                }
+
+                this.score = totalPass/(listConditions.length + 1)
+                this.showResult = true
             },
             uploadFile() {                
                 // Get the input element
                 var input = document.getElementById('fileInput');
+                console.log(input.files)
                 // Check if a file is selected
                 if (input.files.length > 0) {
+                    this.analyze(input.files)
+                    // This will be useful code in the future! But it mainly pertains to reading the contents of the file.
+                    /*
                     const reader = new FileReader()
+                    
                     
                     reader.addEventListener(
                         "load",
                         () => {
                         // this will then display a text file
                         //this.test = reader.result
-                        this.showResult = true
+                        console.log("Reader has loaded file!")
                         },
                         false,
-                    );
+                    ); 
 
                     // Access the selected file
                     var file = input.files[0];
@@ -58,9 +73,8 @@ import DisplayResults from '../components/DisplayResults.vue';
                         reader.readAsText(file)
                         // Display file details
                         console.log('File name: ' + file.name);
-                        console.log('File type: ' + file.type);
-                        console.log('File size: ' + file.size + ' bytes');
                     }
+                    */
                     
                 } else {
                     console.log('No file selected');

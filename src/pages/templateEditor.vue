@@ -4,7 +4,7 @@
             return{
                 comments: {conditionName: "Comments", isEmpty: false, contains: ""},
                 listOfConditions: [
-                    {conditionName: "conditionName", fName: "", isFolder: false, isExist: false, extension: ".txt"}
+                    {conditionName: "File/Folder", fName: "test.txt", isFolder: false, isExist: false}
                 ]
             }
         },
@@ -34,10 +34,6 @@
             <br>
             <input type="checkbox" :value="singleCondition.isExist" @input="singleCondition.isExist = !singleCondition.isExist">
             <label>&nbsp;Check this box if the {{singleCondition.isFolder ? "folder" : "file"}} should exist</label>
-            <div v-if="!singleCondition.isFolder">
-	            <label>Extension of the file:&nbsp;</label><input :value="singleCondition.extension" 
-                @input="singleCondition.extension = this.target.value" placeholder="Enter extension of file here">
-            </div>
         </div>
     </div>
     <router-link to="/fileUpload" v-slot="{href, navigate}">
