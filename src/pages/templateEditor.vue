@@ -2,9 +2,10 @@
     export default{
         data(){
             return{
+                comments: {conditionName: "Comments", isEmpty: false, contains: ""},
                 listOfConditions: [
-                    {conditionName: "CONDITIONNAME", fName: "fNAME", isEmpty: true, isExist: true, isFolder: false, extension: ".txt"},
-                    {conditionName: "CONDITIONNAME2", fName: "fNAME2", isEmpty: true, isExist: true, isFolder: false, extension: ".txt"}
+                    {conditionName: "CONDITIONNAME", fName: "fNAME", isExist: true, isFolder: false, extension: ".txt"},
+                    {conditionName: "CONDITIONNAME2", fName: "fNAME2", isExist: true, isFolder: false, extension: ".txt"}
                 ]
             }
         }
@@ -13,14 +14,32 @@
 
 <template>
     <div id="row h">
+        <h2>{{ comments.conditionName }}</h2>
+        <input type="checkbox" :value="comments.isEmpty" @input="comments.isEmpty = !comments.isEmpty">
+        <label>&nbsp;Check this box if the comments should be empty</label>
+        <div v-if="!comments.isEmpty"><textarea v-model="comments.contains" placeholder="What should the comments say?"></textarea><br></div>
+
         <div v-for="singleCondition in listOfConditions">
+            <br>
             <h2>{{ singleCondition.conditionName }}</h2>
-            <input
-            type="checkbox"
-            :value="singleCondition.isFolder"
-            @input="singleCondition.isFolder = !singleCondition.isFolder">
-            <label v-if="singleCondition.isFolder">Name of Folder</label>
-            <label v-else>Name of File</label>
+            <div v-if="singleCondition.isFolder">
+                <input type="checkbox" :value="singleCondition.isFolder" @input="singleCondition.isFolder = !singleCondition.isFolder">
+                <label>&nbsp;Name of Folder:&nbsp;</label>
+                <input :value="singleCondition.fName" @input="singleCondition.fName = this.target.value" placeholder="Enter name of folder here">
+                <br>
+                <input type="checkbox" :value="singleCondition.isExist" @input="singleCondition.isExist = !singleCondition.isExist">
+                <label>&nbsp;Check this box if the folder should exist</label>
+            </div>
+            <div v-else>
+                <input type="checkbox" :value="singleCondition.isFolder" @input="singleCondition.isFolder = !singleCondition.isFolder">
+                <label>&nbsp;Name of File&nbsp;</label>
+                <input :value="singleCondition.fName" @input="singleCondition.fName = this.target.value" placeholder="Enter name of file here">
+                <br>
+                <input type="checkbox" :value="singleCondition.isExist" @input="singleCondition.isExist = !singleCondition.isExist">
+                <label>&nbsp;Check this box if the file should  exist</label>
+                <br>
+                <label>Extension of the file:&nbsp;</label><input :value="singleCondition.extension" @input="singleCondition.extension = this.target.value" placeholder="Enter extension of file here">
+            </div>
         </div>
     </div>
     <router-link to="/fileUpload" v-slot="{href, navigate}">
