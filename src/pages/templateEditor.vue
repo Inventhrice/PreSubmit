@@ -1,5 +1,4 @@
 <script>
-import conditions from "../components/condition.vue"
     export default{
         data(){
             return{
@@ -8,9 +7,6 @@ import conditions from "../components/condition.vue"
                     {conditionName: "CONDITIONNAME2", fName: "fNAME2", isEmpty: true, isExist: true, isFolder: false, extension: ".txt"}
                 ]
             }
-        },
-        components:{
-            'IndividualConditon': conditions
         }
     }
 </script>
@@ -18,7 +14,13 @@ import conditions from "../components/condition.vue"
 <template>
     <div id="row h">
         <div v-for="singleCondition in listOfConditions">
-        <IndividualConditon :input="singleCondition"/>
+            <h2>{{ singleCondition.conditionName }}</h2>
+            <input
+            type="checkbox"
+            :value="singleCondition.isFolder"
+            @input="singleCondition.isFolder = !singleCondition.isFolder">
+            <label v-if="singleCondition.isFolder">Name of Folder</label>
+            <label v-else>Name of File</label>
         </div>
     </div>
     <router-link to="/fileUpload" v-slot="{href, navigate}">
