@@ -7,6 +7,12 @@
                     {conditionName: "conditionName", fName: "", isFolder: false, isExist: false, extension: ".txt"}
                 ]
             }
+        },
+        provide(){
+            return{
+                comments: this.comments,
+                allConditions: this.listOfConditions
+            }
         }
     }
 </script>

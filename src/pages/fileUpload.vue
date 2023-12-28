@@ -12,6 +12,10 @@
 <script>
 import DisplayResults from '../components/DisplayResults.vue';
     export default{
+        inject:{
+            comments: Object,
+            allConditions: Object
+        },
         data(){
             return{
                 showResult: false,
@@ -27,8 +31,9 @@ import DisplayResults from '../components/DisplayResults.vue';
         methods: {
             analyze(){
                 this.showResult = !this.showResult
-                let totalscore = 100
-                this.score = totalscore - 10
+                let totalPass = 0
+                this.score = totalPass/listConditions.length
+                
             },
             uploadFile() {                
                 // Get the input element
