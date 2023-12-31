@@ -1,20 +1,21 @@
 <script>
-    export default{
-        data(){
-            return{
-                comments: {conditionName: "Comments", isEmpty: false, contains: ""},
-                listOfConditions: [
-                    {conditionName: "File/Folder", fName: "test.txt", isFolder: false, isExist: false}
-                ]
-            }
-        },
-        provide(){
-            return{
-                comments: this.comments,
-                allConditions: this.listOfConditions
-            }
+import { computed } from 'vue'
+export default{
+    data(){
+        return{
+            comments: {conditionName: "Comments", isEmpty: false, contains: ""},
+            listOfConditions: [
+                {conditionName: "File/Folder", fName: "test.txt", isFolder: false, isExist: false}
+            ]
+        }
+    },
+    provide(){
+        return{
+            allConditions: computed(() => this.listOfConditions),
+            commentCondition: computed(() => this.comments)
         }
     }
+}
 </script>
 
 <template>
