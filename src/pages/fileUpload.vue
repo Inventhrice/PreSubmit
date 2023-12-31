@@ -34,13 +34,14 @@ export default{
             else{
                 if(this.commentCondition.isEmpty && this.comments == "") totalPass += 1;
                 if(!this.commentCondition.isEmpty && this.comments == this.commentCondition.contains) totalPass += 1;
-                /*
-                for(let file in userFileArray){
+                
+                for(let i=0; i<userFileArray.length; i++){
+                    let file = userFileArray[i]
                     let found = false
-                    console.log(file.name)
+                    
                     for(let i = 0; !found && i < this.allConditions.length; i++)found = file.name == this.allConditions[i].fName
-                    if(found) this.totalPass++
-                } */
+                    if(found) totalPass += 1
+                }
             }
             this.score = totalPass*100///(this.allConditions.length + 1)
             this.showResult = true
