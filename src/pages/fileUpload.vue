@@ -48,37 +48,34 @@ export default{
         uploadFile() {                
             // Get the input element
             var input = document.getElementById('fileInput');
-            //console.log(input.files)
+            if (input.files.length == 0) console.log('No file selected');
+            this.analyze(input.files)
+            
             // Check if a file is selected
-            if (input.files.length > 0) {
-                this.analyze(input.files)
-                // This will be useful code in the future! But it mainly pertains to reading the contents of the file.
-                /*
-                const reader = new FileReader()
-                
-                
-                reader.addEventListener(
-                    "load",
-                    () => {
-                    // this will then display a text file
-                    //this.test = reader.result
-                    console.log("Reader has loaded file!")
-                    },
-                    false,
-                ); 
+            
+            // This will be useful code in the future! But it mainly pertains to reading the contents of the file.
+            /*
+            const reader = new FileReader()
+            
+            
+            reader.addEventListener(
+                "load",
+                () => {
+                // this will then display a text file
+                //this.test = reader.result
+                console.log("Reader has loaded file!")
+                },
+                false,
+            ); 
 
-                // Access the selected file
-                var file = input.files[0];
-                if(file){
-                    reader.readAsText(file)
-                    // Display file details
-                    console.log('File name: ' + file.name);
-                }
-                */
-                
-            } else {
-                console.log('No file selected');
+            // Access the selected file
+            var file = input.files[0];
+            if(file){
+                reader.readAsText(file)
+                // Display file details
+                console.log('File name: ' + file.name);
             }
+            */
         }
     },
     components:{
