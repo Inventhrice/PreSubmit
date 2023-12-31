@@ -19,31 +19,40 @@ export default{
             comments: "",
             score: 0,
             warnErrList: [],
-            commentCondition: {conditionName: "Comments", isEmpty: true, contains: "C"},
+            commentCondition: {conditionName: "Comments", isEmpty: false, contains: "C"},
             allConditions: [{conditionName: "File/Folder", fName: "test.txt", isFolder: false, isExist: false}]
         }
     },
     methods: {
         analyze(userFileArray){
             // {text: "This is a general statement!", warning: false, error: false}
-            
+            this.warnErrList = []
             let totalPass = 0
-            if(userFileArray.length != this.allConditions.length){
+            if(userFileArray.length != this.allConditions.length)
                 warnErrList.push({text: "There are either too many or too little files provided.", warning: false, error: true})
-            }
+            
             else{
-                if(this.commentCondition.isEmpty && this.comments == "") totalPass += 1;
-                if(!this.commentCondition.isEmpty && this.comments == this.commentCondition.contains) totalPass += 1;
+                if((this.commentCondition.isEmpty && this.comments == "") || (!this.commentCondition.isEmpty && this.comments == this.commentCondition.contains)) totalPass += 1;
+                else this.warnErrList.push({text: "The comments do not match what is required.", warning: false, error: true})
                 
-                for(let i=0; i<userFileArray.length; i++){
+                for(let i = 0; i < userFileArray.length; i++){
                     let file = userFileArray[i]
                     let found = false
                     
-                    for(let i = 0; !found && i < this.allConditions.length; i++)found = file.name == this.allConditions[i].fName
-                    if(found) totalPass += 1
+                    for(let j = 0; !found && j < this.allConditions.length; j++) 
+                        if(file.name == this.allConditions[j].fName)
+                            found = true
+                    
+                    if(found)
+                        totalPass += 1
+                    else 
+                        this.warnErrList.push({text: ("File name " + file.name + " is not found in the conditions list."), warning: false, error: true})
                 }
             }
-            this.score = totalPass*100///(this.allConditions.length + 1)
+
+            if(this.warnErrList.length == 0) this.warnErrList.push({text: "You are all good to submit!", warning: false, error: false})
+
+            this.score = totalPass*100/(this.allConditions.length + 1)
             this.showResult = true
         },
         uploadFile() {                

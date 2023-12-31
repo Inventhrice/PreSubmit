@@ -26,7 +26,7 @@
                 ]
             */
             score: Number,
-            warnErrList: Object
+            warnErrList: Array
         }
     }
 </script>
