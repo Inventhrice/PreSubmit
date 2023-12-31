@@ -14,6 +14,11 @@ export default{
             allConditions: computed(() => this.listOfConditions),
             commentCondition: computed(() => this.comments)
         }
+    },
+    methods:{
+        addCondition(){
+            this.listOfConditions.push({conditionName: "File/Folder", fName: "", isFolder: false, isExist: false})
+        }
     }
 }
 </script>
