@@ -17,7 +17,7 @@ export default{
     },
     methods:{
         addCondition(){
-            this.listOfConditions.push({conditionName: "File/Folder", fName: "", isFolder: false, isExist: false})
+            this.listOfConditions.push({conditionName: "File/Folder", fName: "" + this.listOfConditions.length, isFolder: false, isExist: false})
         },
         removeCondition(condition){
             console.log(this.listOfConditions)
