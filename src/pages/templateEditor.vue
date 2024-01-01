@@ -43,7 +43,7 @@ export default{
         <div v-for="singleCondition in listOfConditions">
             <br>
             <!-- Does three things: renders condition name; if its the last in list: have a plus button to add another condition, and have a minus button to remove condition -->
-            <h2>{{ singleCondition.conditionName }} <button v-if="singleCondition === listOfConditions[listOfConditions.length-1]" @click="addCondition">+</button><button @click="removeCondition(singleCondition)">-</button></h2>
+            <h2>{{ singleCondition.conditionName }} <button v-if="singleCondition === listOfConditions[listOfConditions.length-1]" class="btn btn-square-md" @click="addCondition">+</button>&nbsp;<button class="btn btn-square-md" @click="removeCondition(singleCondition)">-</button></h2>
             
             <!-- Changes between file and folder, and asks for name -->
             <input type="checkbox" :value="singleCondition.isFolder" @input="singleCondition.isFolder = !singleCondition.isFolder">
