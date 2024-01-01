@@ -16,17 +16,17 @@
 
 <script>
     export default{
-        data(){
-            return{
+        props:{
+            /*
+            What WarnErrList should look like
                 warnErrList: [
                     {text: "This is a general statement!", warning: false, error: false},
                     {text: "This is what gets displayed if we are unsure of something!", warning: true, error: false},
                     {text: "This is a certified error!", warning: false, error: true}
                 ]
-            }
-        },
-        props:{
-            score: Number
+            */
+            score: Number,
+            warnErrList: Array
         }
     }
 </script>
