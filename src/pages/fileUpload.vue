@@ -12,16 +12,17 @@
 <script>
 import DisplayResults from '../components/DisplayResults.vue';
 export default{
-    //inject: [commentCondition, allConditions],
     data(){
         return{
             showResult: false,
             comments: "",
             score: 0,
-            warnErrList: [],
-            commentCondition: {conditionName: "Comments", isEmpty: false, contains: "C"},
-            allConditions: [{conditionName: "File/Folder", fName: "test.txt", isFolder: false, isExist: false}]
+            warnErrList: []
         }
+    },
+    props:{
+        commentCondition: Object,
+        allConditions: Array
     },
     methods: {
         analyze(userFileArray){

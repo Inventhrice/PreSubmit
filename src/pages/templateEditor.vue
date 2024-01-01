@@ -1,18 +1,13 @@
 <script>
-import { computed } from 'vue'
+import fileupload from "./fileUpload.vue"
 export default{
     data(){
         return{
             comments: {conditionName: "Comments", isEmpty: false, contains: ""},
             listOfConditions: [
                 {conditionName: "File/Folder", fName: "test.txt", isFolder: false, isExist: false}
-            ]
-        }
-    },
-    provide(){
-        return{
-            allConditions: computed(() => this.listOfConditions),
-            commentCondition: computed(() => this.comments)
+            ],
+            showFileUpload: false
         }
     },
     methods:{
@@ -20,16 +15,15 @@ export default{
             this.listOfConditions.push({conditionName: "File/Folder", fName: "" + this.listOfConditions.length, isFolder: false, isExist: false})
         },
         removeCondition(condition){
-            console.log(this.listOfConditions)
             this.listOfConditions = this.listOfConditions.filter((t) => t !== condition)
-            console.log(this.listOfConditions)
         }
-    }
+    },
+    components:{'FileUpload': fileupload}
 }
 </script>
 
 <template>
-    <div id="row h">
+    <div v-if="!showFileUpload" id="row h">
         <!-- Renders Comments -->
         <h2>{{ comments.conditionName }}</h2>
         <input type="checkbox" :value="comments.isEmpty" @input="comments.isEmpty = !comments.isEmpty">
@@ -57,9 +51,12 @@ export default{
             <input type="checkbox" :value="singleCondition.isExist" @input="singleCondition.isExist = !singleCondition.isExist">
             <label>&nbsp;Check this box if the {{singleCondition.isFolder ? "folder" : "file"}} should exist</label>
         </div>
+        <br>
+        <button @click="showFileUpload = true">Next</button>
     </div>
-    <br>
-    <router-link to="/fileUpload" v-slot="{href, navigate}">
-        <button :href="href" @click="navigate">Next</button>
-    </router-link>
+    <div v-else id="row h">
+        <button @click="showFileUpload = false">Back</button>
+        <FileUpload :commentCondition="comments" :allConditions="listOfConditions" />
+    </div>
+    
 </template>

@@ -7,7 +7,6 @@ import RootPath from './pages/Index.vue'
 import About from './pages/about.vue'
 import Settings from './pages/settings.vue'
 import Template from './pages/template.vue'
-import FileUpload from './pages/fileUpload.vue'
 import Conditions from './pages/templateEditor.vue'
 
 const router = createRouter({
@@ -17,8 +16,7 @@ const router = createRouter({
         { path: '/about', component: About },
         { path: '/settings', component: Settings },
         { path: '/template', component: Template },
-        { path: '/fileUpload', component: FileUpload },
-        { path: '/conditions', component: Conditions }
+        { path: '/process', component: Conditions }
     ]
 })
 
